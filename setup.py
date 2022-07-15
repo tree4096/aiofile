@@ -58,5 +58,5 @@ setup(
             "pytest-cov",
         ],
     },
-    install_requires=["caio~=0.9.0"],
+    install_requires=["caio @ git+https://github.com/tree4096/caio.git"],
 )
