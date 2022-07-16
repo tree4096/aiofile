@@ -12,7 +12,7 @@ libraries = []
 
 
 setup(
-    name="aiofile",
+    name="aiofile_fix",
     version=module.__version__,
     packages=["aiofile"],
     include_package_data=True,
