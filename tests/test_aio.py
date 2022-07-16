@@ -9,7 +9,7 @@ from random import shuffle
 from uuid import uuid4
 
 import asynctest
-import caio
+import caiofix
 import pytest
 
 from aiofilefix import AIOFile
@@ -314,7 +314,7 @@ async def test_write_read_nothing(aio_file_maker, temp_file, mode, data):
 
 
 async def test_partial_writes(temp_file, loop):
-    ctx = asynctest.Mock(caio.AbstractContext)
+    ctx = asynctest.Mock(caiofix.AbstractContext)
     ctx.loop = loop
     ctx.fdsync = asynctest.CoroutineMock(return_value=None)
     ctx.write = asynctest.CoroutineMock(side_effect=asyncio.InvalidStateError)
@@ -341,7 +341,7 @@ async def test_partial_writes(temp_file, loop):
 
 
 async def test_write_returned_negative(temp_file, loop):
-    ctx = asynctest.Mock(caio.AbstractContext)
+    ctx = asynctest.Mock(caiofix.AbstractContext)
     ctx.loop = loop
     ctx.fdsync = asynctest.CoroutineMock(return_value=None)
     ctx.write = asynctest.CoroutineMock(side_effect=asyncio.InvalidStateError)
@@ -363,7 +363,7 @@ async def test_write_returned_negative(temp_file, loop):
 
 
 async def test_write_returned_zero(temp_file, loop):
-    ctx = asynctest.Mock(caio.AbstractContext)
+    ctx = asynctest.Mock(caiofix.AbstractContext)
     ctx.loop = loop
     ctx.fdsync = asynctest.CoroutineMock(return_value=None)
     ctx.write = asynctest.CoroutineMock(side_effect=asyncio.InvalidStateError)

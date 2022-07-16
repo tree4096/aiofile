@@ -11,8 +11,8 @@ from typing import (
 )
 from weakref import finalize
 
-import caio
-from caio.asyncio_base import AsyncioContextBase
+import caiofix
+from caiofix.asyncio_base import AsyncioContextBase
 
 
 AIO_FILE_NOT_OPENED = -1
@@ -287,15 +287,15 @@ class AIOFile:
         )
 
 
-ContextStoreType = Dict[asyncio.AbstractEventLoop, caio.AsyncioContext]
+ContextStoreType = Dict[asyncio.AbstractEventLoop, caiofix.AsyncioContext]
 DEFAULT_CONTEXT_STORE: ContextStoreType = {}
 
 
 def create_context(
-    max_requests: int = caio.AsyncioContext.MAX_REQUESTS_DEFAULT,
-) -> caio.AsyncioContext:
+    max_requests: int = caiofix.AsyncioContext.MAX_REQUESTS_DEFAULT,
+) -> caiofix.AsyncioContext:
     loop = asyncio.get_event_loop()
-    context = caio.AsyncioContext(max_requests, loop=loop)
+    context = caiofix.AsyncioContext(max_requests, loop=loop)
 
     def finalizer() -> None:
         context.close()
@@ -306,7 +306,7 @@ def create_context(
     return context
 
 
-def get_default_context() -> caio.AsyncioContext:
+def get_default_context() -> caiofix.AsyncioContext:
     loop = asyncio.get_event_loop()
     context = DEFAULT_CONTEXT_STORE.get(loop)
 
