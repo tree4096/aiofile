@@ -12,8 +12,8 @@ import asynctest
 import caio
 import pytest
 
-from aiofile import AIOFile
-from aiofile.utils import (
+from aiofilefix import AIOFile
+from aiofilefix.utils import (
     BinaryFileWrapper, LineReader, Reader, TextFileWrapper, Writer,
 )
 

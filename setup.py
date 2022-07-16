@@ -5,16 +5,16 @@ from setuptools import setup
 
 
 module = SourceFileLoader(
-    "version", path.join("aiofile", "version.py"),
+    "version", path.join("aiofilefix", "version.py"),
 ).load_module()
 
 libraries = []
 
 
 setup(
-    name="aiofile_fix",
+    name="aiofilefix",
     version=module.__version__,
-    packages=["aiofile"],
+    packages=["aiofilefix"],
     include_package_data=True,
     license=module.package_license,
     description=module.package_info,
@@ -23,7 +23,7 @@ setup(
     url=module.project_home,
     author=module.__author__,
     author_email=module.team_email,
-    provides=["aiofile"],
+    provides=["aiofilefix"],
     keywords=["aio", "python", "asyncio", "fileio", "io"],
     classifiers=[
         "Development Status :: 5 - Production/Stable",
